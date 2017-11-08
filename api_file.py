@@ -3,11 +3,6 @@ import re
 
 
 class Computer:
-    __os = ""
-
-    def __init__(self, operating_system):
-        self.__os = operating_system
-
     @staticmethod
     def get_current_directory():
         # full path to the directory a Python file is contained in
