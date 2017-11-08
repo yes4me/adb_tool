@@ -14,7 +14,6 @@ class Phone:
     @staticmethod
     def get_adb(command):
         try:
-            print("START")
             # result_str = str(check_output(["adb", command]))
             # print("result_str=" + result_str)
 
@@ -66,19 +65,16 @@ class Phone:
             return None
 
     @staticmethod
-    def get_memory():
+    def get_memory_percentage():
         # 3 ways to get different type of memory
         # os.system("adb shell vmstat")
         # os.system("adb shell top")  # memory for each application
         result_dictionary = Phone.get_adb_dictionary('shell "cat /proc/meminfo"')
-        print(result_dictionary)
-        print(result_dictionary['MemTotal'])
-        print(result_dictionary['MemFree'])
-        # print(str( Convert.get_number(result_dictionary['MemFree']) ))
-        print(str(Convert.get_number("aa987.5bb")))
-        print(str(Convert.get_number("aa987bb")))
-        print(str(Convert.get_number("aa-987.5bb")))
-        print(str(Convert.get_number("aa-987bb")))
+        mem_total = Convert.get_number( result_dictionary['MemTotal'] )
+        mem_free = Convert.get_number( result_dictionary['MemFree'] )
+        if mem_total != 0:
+            return int(mem_free)*100 / int(mem_total)
+        return -1
 
     # Thomas XXX
     @staticmethod
