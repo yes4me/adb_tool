@@ -37,9 +37,26 @@ class Phone:
     @staticmethod
     def get_adb_dictionary(command):
         result_str = Phone.get_adb(command)
-        result_str = re.sub("(\s)*:(\s)*", "':'", result_str)
-        result_str = re.sub("(\\\\r+\\\\n)+", "', '", result_str)
-        result_str = "{'" + result_str + "'}"
+        result_str = re.sub(",", " ", result_str)
+        adb_list = result_str.split("\\r\\n")
+
+        # Prepare the list to convert to dictionary
+        index = 0
+        for adb_str in adb_list:
+            adb_str = adb_str.strip()
+            if re.search("=", adb_str):
+                adb_str = re.sub("(\s*)=(\s*)", "':'", adb_str)
+            elif re.search(":", adb_str):
+                adb_str = re.sub("(\s*):(\s*)", "':'", adb_str)
+            else:
+                adb_str += "':'"
+            adb_str = "'" + adb_str + "'"
+            adb_list[index] = adb_str
+            index += 1
+        result_str = ", ".join(adb_list)
+        result_str = "{" + result_str + "}"
+
+        # Convert list to dictionary
         try:
             result_dict = ast.literal_eval(result_str)
             return result_dict
@@ -47,7 +64,7 @@ class Phone:
             return None
 
     @staticmethod
-    def count_devices():
+    def get_count_devices():
         return len(Phone.get_devices_list())
 
     @staticmethod
@@ -65,7 +82,7 @@ class Phone:
             return None
 
     @staticmethod
-    def get_memory_percentage():
+    def get_memory_pct():
         # 3 ways to get different type of memory
         # os.system("adb shell vmstat")
         # os.system("adb shell top")  # memory for each application
@@ -76,12 +93,10 @@ class Phone:
             return int(mem_free)*100 / int(mem_total)
         return -1
 
-    # Thomas XXX
     @staticmethod
-    def get_battery():
-        result_str = str(subprocess.check_output(["adb", "shell cat /sys/class/power_supply/battery/*"]))
-        print("@@@")
-        print(result_str)
+    def get_battery_pct():
+        result_dictionary = Phone.get_adb_dictionary("shell cat /sys/class/power_supply/battery/*")
+        return result_dictionary["POWER_SUPPLY_CAPACITY"]
 
     @staticmethod
     def reboot():

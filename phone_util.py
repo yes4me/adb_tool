@@ -14,10 +14,9 @@ phone = Phone()
 # print("3==>" + str( computer.rename_file("test.txt", "test2.txt") ))
 
 print("BEGIN")
-print("Phone counter = "+ str(phone.count_devices()))
-print("Memory percentage = " +  str(phone.get_memory_percentage()) )
-# phone.get_freememory()
-# phone.get_battery()
+# print("Phone counter = "+ str(phone.get_count_devices()))
+# print("Memory percentage = " +  str(phone.get_memory_pct()) )
+# print("Current battery = " + phone.get_battery_pct() )
 print("END")
 
 
