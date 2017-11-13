@@ -34,34 +34,9 @@ class Phone:
             print(e)
             return ""
 
-    @staticmethod
     def get_adb_dictionary(command):
-        result_str = Phone.get_adb(command)
-        result_str = re.sub(",", " ", result_str)
-        adb_list = result_str.split("\\r\\n")
-
-        # Prepare the list to convert to dictionary
-        index = 0
-        for adb_str in adb_list:
-            adb_str = adb_str.strip()
-            if re.search("=", adb_str):
-                adb_str = re.sub("(\s*)=(\s*)", "':'", adb_str)
-            elif re.search(":", adb_str):
-                adb_str = re.sub("(\s*):(\s*)", "':'", adb_str)
-            else:
-                adb_str += "':'"
-            adb_str = "'" + adb_str + "'"
-            adb_list[index] = adb_str
-            index += 1
-        result_str = ", ".join(adb_list)
-        result_str = "{" + result_str + "}"
-
-        # Convert list to dictionary
-        try:
-            result_dict = ast.literal_eval(result_str)
-            return result_dict
-        except Exception:
-            return None
+        text = Phone.get_adb(command)
+        return Convert.get_dictionary(text)
 
     @staticmethod
     def get_count_devices():
@@ -99,11 +74,9 @@ class Phone:
         return result_dictionary["POWER_SUPPLY_CAPACITY"]
 
     @staticmethod
+    def go_bluetooth():
+        os.system("adb shell am start -a android.settings.BLUETOOTH_SETTINGS")
+
+    @staticmethod
     def reboot():
         os.system("adb reboot")
-
-    # @staticmethod
-    # def get_memory_list():
-    #     result_str = Phone.get_adb('shell "cat /proc/meminfo"')
-    #     result_list = result_str.split("\\r\\n")
-    #     return result_list
