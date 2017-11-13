@@ -2,9 +2,11 @@ import os
 
 from api_file import Computer
 from api_phone import Phone
+from api_windows import Windows
 
 computer = Computer()
 phone = Phone()
+window = Windows(os.name)
 
 
 # Testing api_file
@@ -13,6 +15,7 @@ phone = Phone()
 # print("2==>" + str( computer.check_file_exist("api_file.py") ))
 # print("3==>" + str( computer.rename_file("test.txt", "test2.txt") ))
 
+# Testing api_phone
 print("BEGIN")
 # print("Phone counter = "+ str(phone.get_count_devices()))
 # print("Memory percentage = " +  str(phone.get_memory_pct()) )
@@ -20,7 +23,15 @@ print("BEGIN")
 print("END")
 
 
+
+txt = window.get_number("test")
+txt = txt + 5
+print("##" + str(txt) + "##")
+
+
+
 # To watch the memory: cat /proc/meminfo
 # If the phone crashes, look at /proc/last_kmsg on reboot.
 # os.system('adb shell pm list packages')
 # return Phone.get_adb('shell pm list packages')
+# call("pip install --upgrade " + dist.project_name, shell=True)

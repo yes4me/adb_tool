@@ -7,9 +7,12 @@ class Convert:
         match_obj = re.match(r'^(\+?\-?)(\d+)(\.?\d*)(.*)', text)
 
         if match_obj:
-            return match_obj.group(1) + match_obj.group(2) + match_obj.group(3)
-        else:
-            return 0
+            result = match_obj.group(1) + match_obj.group(2) + match_obj.group(3)
+            try:
+                return int(result)
+            except ValueError:
+                return float(result)
+        return 0
 
 
     @staticmethod
