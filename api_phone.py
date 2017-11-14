@@ -63,14 +63,18 @@ class Phone:
         # os.system("adb shell top")  # memory for each application
         result_dictionary = Phone.get_adb_dictionary('shell "cat /proc/meminfo"')
         mem_total = Convert.get_number( result_dictionary['MemTotal'] )
+        if mem_total is None or mem_total == 0:
+            return -1
         mem_free = Convert.get_number( result_dictionary['MemFree'] )
-        if mem_total != 0:
-            return int(mem_free)*100 / int(mem_total)
-        return -1
+        if mem_free is None:
+            return -1
+        return int(mem_free)*100 / int(mem_total)
 
     @staticmethod
     def get_battery_pct():
         result_dictionary = Phone.get_adb_dictionary("shell cat /sys/class/power_supply/battery/*")
+        if result_dictionary is None:
+            return -1
         return result_dictionary["POWER_SUPPLY_CAPACITY"]
 
     @staticmethod

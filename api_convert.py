@@ -1,3 +1,4 @@
+import ast
 import re
 
 class Convert:
@@ -31,6 +32,7 @@ class Convert:
             else:
                 adb_str += "':'"
             adb_str = "'" + adb_str + "'"
+            # print("adb_str= " + adb_str)
             adb_list[index] = adb_str
             index += 1
         result_str = ", ".join(adb_list)
@@ -42,4 +44,3 @@ class Convert:
             return result_dict
         except Exception:
             return None
-

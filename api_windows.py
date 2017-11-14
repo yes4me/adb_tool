@@ -16,7 +16,10 @@ class Windows:
     @staticmethod
     def get_string(input_text):
         sys.stdout.flush()
-        text = input(input_text)
+        try:
+            text = input(input_text)
+        except:
+            return ""
         return text
 
     @staticmethod
