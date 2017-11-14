@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="78de77cc-f96b-4e70-a87d-904d44ebd862" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/adb_tool.py" afterPath="$PROJECT_DIR$/adb_tool.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api_convert.py" afterPath="$PROJECT_DIR$/api_convert.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api_phone.py" afterPath="$PROJECT_DIR$/api_phone.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/api_windows.py" afterPath="$PROJECT_DIR$/api_windows.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,7 +13,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="adb_tool.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="adb_tool.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/adb_tool.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="945">
@@ -29,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api_windows.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="api_windows.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api_windows.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="839">
-              <caret line="31" column="8" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+            <state relative-caret-position="399">
+              <caret line="20" column="32" lean-forward="false" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -437,20 +433,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api_windows.py">
+    <entry file="file://$PROJECT_DIR$/adb_tool.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="839">
-          <caret line="31" column="8" lean-forward="false" selection-start-line="31" selection-start-column="8" selection-end-line="31" selection-end-column="8" />
+        <state relative-caret-position="945">
+          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adb_tool.py">
+    <entry file="file://$PROJECT_DIR$/api_windows.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+        <state relative-caret-position="399">
+          <caret line="20" column="32" lean-forward="false" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

@@ -18,7 +18,7 @@ class Windows:
         sys.stdout.flush()
         try:
             text = input(input_text)
-        except:
+        except KeyboardInterrupt:
             return ""
         return text
 
