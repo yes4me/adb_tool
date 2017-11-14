@@ -4,11 +4,10 @@ from api_file import Computer
 from api_phone import Phone
 from api_windows import Windows
 
+
 computer = Computer()
 phone = Phone()
 windows = Windows(os.name)
-
-# windows.update_python_modules()
 
 def various_info():
     print("Number of devices connected = " + str(phone.get_count_devices()))
@@ -34,10 +33,9 @@ def main():
         return
     main()
 
+
+# windows.update_python_modules()
 main()
-
-
-
 
 # If the phone crashes, look at /proc/last_kmsg on reboot.
 # os.system('adb shell pm list packages')

@@ -1,6 +1,7 @@
 import ast
 import re
 
+
 class Convert:
     @staticmethod
     def get_number(text):
@@ -14,7 +15,6 @@ class Convert:
             except ValueError:
                 return float(result)
         return 0
-
 
     @staticmethod
     def get_dictionary(text):

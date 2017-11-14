@@ -10,8 +10,8 @@ from api_convert import Convert
 class Windows:
     __os = ""
 
-    def __init__(self, os):
-        self.__os = os
+    def __init__(self, operating_system):
+        self.__os = operating_system
 
     @staticmethod
     def get_string(input_text):
