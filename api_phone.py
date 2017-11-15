@@ -58,6 +58,13 @@ class Phone:
             return None
 
     @staticmethod
+    def get_battery_pct():
+        result_dictionary = Phone.get_adb_dictionary("shell cat /sys/class/power_supply/battery/*")
+        if result_dictionary is None:
+            return -1
+        return result_dictionary["POWER_SUPPLY_CAPACITY"]
+
+    @staticmethod
     def get_memory_pct():
         # 3 ways to get different type of memory
         # os.system("adb shell vmstat")
@@ -72,16 +79,16 @@ class Phone:
         return int(mem_free)*100 / int(mem_total)
 
     @staticmethod
-    def get_battery_pct():
-        result_dictionary = Phone.get_adb_dictionary("shell cat /sys/class/power_supply/battery/*")
-        if result_dictionary is None:
-            return -1
-        return result_dictionary["POWER_SUPPLY_CAPACITY"]
-
-    @staticmethod
     def go_bluetooth():
         os.system("adb shell am start -a android.settings.BLUETOOTH_SETTINGS")
+        # return_code = subprocess.run("adb shell am start -a android.settings.BLUETOOTH_SETTINGS")
 
     @staticmethod
     def reboot():
         os.system("adb reboot")
+        # return_code = subprocess.run("adb reboot")
+
+    @staticmethod
+    def get_adblog():
+        from subprocess import Popen, CREATE_NEW_CONSOLE
+        Popen('adb logcat -d > test.txt')
