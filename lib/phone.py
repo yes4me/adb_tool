@@ -2,7 +2,7 @@ import os
 import re
 import subprocess
 
-from api_convert import Convert
+from lib.convert import Convert
 
 
 class Phone:

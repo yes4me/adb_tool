@@ -1,7 +1,7 @@
 import os
 import re
 
-from api_string import String
+from lib.string import String
 
 class File:
     @staticmethod

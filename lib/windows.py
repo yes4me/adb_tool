@@ -4,7 +4,7 @@ import sys
 
 import pip
 
-from api_convert import Convert
+from lib.convert import Convert
 
 
 class Windows:

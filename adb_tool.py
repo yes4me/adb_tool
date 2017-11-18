@@ -1,10 +1,10 @@
 import importlib
 import os
 
-from api_file import File
-from api_phone import Phone
-from api_time import Time
-from api_windows import Windows
+from lib.file import File
+from lib.phone import Phone
+from lib.time import Time
+from lib.windows import Windows
 
 
 file = File()
