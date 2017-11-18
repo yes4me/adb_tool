@@ -1,16 +1,11 @@
-import importlib
 import os
 
-from lib.file import File
-from lib.phone import Phone
-from lib.time import Time
-from lib.windows import Windows
+import lib
 
-
-file = File()
-phone = Phone()
-time = Time()
-windows = Windows(os.name)
+file = lib.File()
+phone = lib.Phone()
+time = lib.Time()
+windows = lib.Windows(os.name)
 
 def various_info():
     print("Number of devices connected = " + str(phone.get_count_devices()))
