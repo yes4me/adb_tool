@@ -1,13 +1,13 @@
-from api_file import Computer
-from api_phone import Phone
-from api_time import Time
-from api_windows import Windows
-
-
-computer = Computer()
-phone = Phone()
-time = Time()
-windows = Windows(os.name)
+# from api_file import Computer
+# from api_phone import Phone
+# from api_time import Time
+# from api_windows import Windows
+#
+#
+# computer = Computer()
+# phone = Phone()
+# time = Time()
+# windows = Windows(os.name)
 
 # If the phone crashes, look at /proc/last_kmsg on reboot.
 # os.system('adb shell pm list packages')
@@ -21,7 +21,6 @@ windows = Windows(os.name)
 
 
 # TO DO:
-# Logcat
 # Upload any apk files in the same folder to cellphone
     # subprocess.Popen("echo %s " % user_input, stdout=PIPE).stdout.read(
     # from subprocess import call, Popen, CREATE_NEW_CONSOLE
@@ -29,14 +28,22 @@ windows = Windows(os.name)
     #     [executable, 'pidcat.py', '%s' % PACKAGE_NAME, '--always-display-tags', '--timestamp',
     #      '--autosave', '-i', PIDCAT_FILTER_NT],
     #     creationflags=CREATE_NEW_CONSOLE)
+# Logcat
 
-computer = Computer()
-phone = Phone()
-time = Time()
-windows = Windows(os.name)
+# computer = Computer()
+# phone = Phone()
+# time = Time()
+# windows = Windows(os.name)
+#
+# log_file = "log_" + time.get_date() + "_" + time.get_time() + ".txt"
+# print("log_file=" + log_file)
+# from subprocess import Popen, CREATE_NEW_CONSOLE
+# Popen('adb logcat -d > test.txt')
+# # Popen('adb logcat -d > ' + log_file, creationflags=CREATE_NEW_CONSOLE)
 
-log_file = "log_" + time.get_date() + "_" + time.get_time() + ".txt"
-print("log_file=" + log_file)
-from subprocess import Popen, CREATE_NEW_CONSOLE
-Popen('adb logcat -d > test.txt')
-# Popen('adb logcat -d > ' + log_file, creationflags=CREATE_NEW_CONSOLE)
+
+import pip
+from subprocess import call
+
+packages = [dist.project_name for dist in pip.get_installed_distributions()]
+call("pip install --upgrade " + ' '.join(packages), shell=True)

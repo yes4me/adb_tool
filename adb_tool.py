@@ -3,6 +3,7 @@ import os
 import lib
 
 file = lib.File()
+import_lib = lib.Import()
 phone = lib.Phone()
 time = lib.Time()
 windows = lib.Windows(os.name)
@@ -14,6 +15,12 @@ def various_info():
 
 
 def main():
+    module_spec = import_lib.get_module_spec('colorama')
+    if module_spec:
+        module_os = import_lib.import_module_from_spec(module_spec)
+        module_os.init(convert=True)
+        print(module_os.Fore.RED + 'Hello world')
+
     print('\n')
     print('[1] Information')
     print('[2] Get adb log')
@@ -66,3 +73,4 @@ def install_apk():
     print(choice)
 
 install_apk()
+

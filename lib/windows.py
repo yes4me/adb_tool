@@ -32,7 +32,7 @@ class Windows:
             os.system("cls")
         elif self.__os == "posix":
             from subprocess import call
-            call("clear", shell=True)
+            call(["clear"], shell=True)
 
     @staticmethod
     def pause():
@@ -41,4 +41,4 @@ class Windows:
     @staticmethod
     def update_python_modules():
         for dist in pip.get_installed_distributions():
-            subprocess.call("pip install --upgrade " + dist.project_name, shell=True)
+            subprocess.call(["pip install --upgrade " + dist.project_name], shell=True)
