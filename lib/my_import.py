@@ -1,6 +1,6 @@
+#!/usr/bin/python
 import importlib
 import importlib.util
-import pip
 import time
 
 
@@ -62,15 +62,20 @@ class MyImport:
 
 
     @staticmethod
-    def update_and_import():
+    def update_python_modules():
         import pip
         from subprocess import call
 
+        # solution #1
         packages = [dist.project_name for dist in pip.get_installed_distributions()]
         call("pip install --upgrade " + ' '.join(packages), shell=True)
 
+        # solution #2
+        # for dist in pip.get_installed_distributions():
+        #     call(["pip install --upgrade " + dist.project_name], shell=True)
 
-if __name__ == '__main__':
+
+def main():
     # Example #1
     module_os = MyImport.import_module('os')
     dir_path = module_os.path.dirname(module_os.path.realpath(__file__))
@@ -80,4 +85,7 @@ if __name__ == '__main__':
     module_os = MyImport.import_module('colorama')
     module_os.init(convert=True)
     print(module_os.Fore.RED + 'Hello world')
-    print("END")
+
+
+if __name__ == '__main__':
+    main()

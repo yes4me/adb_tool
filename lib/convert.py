@@ -1,8 +1,11 @@
+#!/usr/bin/python
 import ast
 import re
 
 
 class Convert:
+
+    # Get a number from a text
     @staticmethod
     def get_number(text):
         text = re.sub(r'^[a-zA-Z\s]*', "", text)
@@ -16,6 +19,7 @@ class Convert:
                 return float(result)
         return 0
 
+    # Convert a text into dictionary
     @staticmethod
     def get_dictionary(text):
         result_str = re.sub(",", " ", text)

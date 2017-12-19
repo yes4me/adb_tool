@@ -1,20 +1,23 @@
+#!/usr/bin/python
 import os
-import subprocess
 import sys
-
-import pip
 
 from lib.convert import Convert
 
 
-class Windows:
+class CmdWindows:
     __os = ""
 
     def __init__(self, operating_system):
         self.__os = operating_system
 
     @staticmethod
-    def get_string(input_text):
+    def get_string(*args):
+        if len(args) == 0:
+            input_text = ""
+        else:
+            input_text = args[0]
+
         sys.stdout.flush()
         try:
             text = input(input_text)
@@ -23,8 +26,12 @@ class Windows:
         return text
 
     @staticmethod
-    def get_number(input_text):
-        text = Windows.get_string(input_text)
+    def get_number(*args):
+        if len(args) == 0:
+            input_text = ""
+        else:
+            input_text = args[0]
+        text = CmdWindows.get_string(input_text)
         return Convert.get_number(text)
 
     def clear(self):
@@ -36,9 +43,4 @@ class Windows:
 
     @staticmethod
     def pause():
-        return Windows.get_string('Press ENTER key to continue')
-
-    @staticmethod
-    def update_python_modules():
-        for dist in pip.get_installed_distributions():
-            subprocess.call(["pip install --upgrade " + dist.project_name], shell=True)
+        return CmdWindows.get_string('Press ENTER key to continue')
